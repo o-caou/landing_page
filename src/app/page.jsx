@@ -8,6 +8,9 @@ import { gallery } from "../../data/gallery";
 //Packages
 import "react-medium-image-zoom/dist/styles.css";
 import Lenis from "lenis";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 // Images
 import Image from "next/image";
@@ -21,11 +24,6 @@ import StorageSection from "@/components/StorageSection";
 import GallerySection from "@/components/GallerySection";
 import Reasurance from "@/components/ReasuranceSection";
 import SpiritSection from "@/components/SpiritSection";
-
-// Animation plugins
-import ScrollTrigger from "gsap/ScrollTrigger";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
