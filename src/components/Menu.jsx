@@ -146,9 +146,9 @@ export default function Menu() {
             <li className="cursor-pointer underline-hover">
               <a href="mailto:hello@ocaou.com">Contact</a>
             </li>
-            <li className="cursor-pointer underline-hover">
-              <a target="_blank" href="http://adresseeshopocaou.com">
-                Shop
+            <li className="cursor-pointer">
+              <a className="bg-gold hover:bg-gold text-white py-1 px-3 rounded-full" target="_blank" href="http://adresseeshopocaou.com">
+                Acheter
               </a>
             </li>
             <li className="rounded-full border border-black p-1 cursor-pointer">
