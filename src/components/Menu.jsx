@@ -157,26 +157,29 @@ export default function Menu() {
           </ul>
 
           <div
-            id="hamburger"
-            onClick={toggleMenu}
-            className="sm:hidden cursor-pointer relative z-50 flex items-center"
+              id="hamburger"
+              onClick={toggleMenu}
+              className="sm:hidden cursor-pointer relative z-50 flex items-center"
           >
-            <Image src={iconCart} alt="icon panier" width={45} height={45} />
+            <a className="bg-gold hover:bg-gold text-white text-sm py-1 px-2 rounded-full" target="_blank"
+               href="http://adresseeshopocaou.com">
+              Acheter
+            </a>
             <div className="ml-4">
               <span
-                className={`block h-1 w-10 bg-black mb-1 transition-transform duration-200 ease-in-out ${
-                  menuOpen ? "transform rotate-45 translate-y-2" : ""
-                }`}
+                  className={`block h-1 w-10 bg-black mb-1 transition-transform duration-200 ease-in-out ${
+                      menuOpen ? "transform rotate-45 translate-y-2" : ""
+                  }`}
               ></span>
               <span
-                className={`block h-1 w-10 bg-black mb-1 transition-opacity duration-200 ease-in-out ${
-                  menuOpen ? "opacity-0" : ""
-                }`}
+                  className={`block h-1 w-10 bg-black mb-1 transition-opacity duration-200 ease-in-out ${
+                      menuOpen ? "opacity-0" : ""
+                  }`}
               ></span>
               <span
-                className={`block h-1 w-10 bg-black transition-transform duration-200 ease-in-out ${
-                  menuOpen ? "transform -rotate-45 -translate-y-2" : ""
-                }`}
+                  className={`block h-1 w-10 bg-black transition-transform duration-200 ease-in-out ${
+                      menuOpen ? "transform -rotate-45 -translate-y-2" : ""
+                  }`}
               ></span>
             </div>
           </div>
@@ -184,9 +187,9 @@ export default function Menu() {
       </div>
 
       <div
-        id="menu-mobile"
-        ref={menuRef}
-        className={`fixed top-0 right-0 w-full h-full bg-sand transform translate-x-full transition-transform duration-500 ease-in-out z-40`}
+          id="menu-mobile"
+          ref={menuRef}
+          className={`fixed top-0 right-0 w-full h-full bg-sand transform translate-x-full transition-transform duration-500 ease-in-out z-40`}
       >
         <ul className="flex flex-col items-center px-6 h-screen justify-center space-y-6 text-white text-4xl uppercase font-bold">
           <li
@@ -209,11 +212,6 @@ export default function Menu() {
           </li>
           <li className="cursor-pointer underline-hover">
             <a href="mailto:hello@ocaou.com"> Contact</a>
-          </li>
-          <li className="cursor-pointer underline-hover">
-            <a target="_blank" href="http://adresseeshopocaou.com">
-              Shop
-            </a>
           </li>
         </ul>
       </div>
