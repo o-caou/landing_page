@@ -146,6 +146,7 @@ export default function Menu() {
             <li className="cursor-pointer underline-hover">
               <a href="mailto:hello@ocaou.com">Contact</a>
             </li>
+
             <div className="flex sm:gap-5">
               <li className="bg-gold text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
                 <a target="_blank" href="">
@@ -173,7 +174,13 @@ export default function Menu() {
             onClick={toggleMenu}
             className="sm:hidden cursor-pointer relative z-50 flex items-center"
           >
-            <Image src={iconCart} alt="icon panier" width={45} height={45} />
+            <a
+              className="bg-gold hover:bg-gold text-white text-sm py-1 px-2 rounded-full"
+              target="_blank"
+              href="http://adresseeshopocaou.com"
+            >
+              Acheter
+            </a>
             <div className="ml-4">
               <span
                 className={`block h-1 w-10 bg-black mb-1 transition-transform duration-200 ease-in-out ${
@@ -221,11 +228,6 @@ export default function Menu() {
           </li>
           <li className="cursor-pointer underline-hover">
             <a href="mailto:hello@ocaou.com"> Contact</a>
-          </li>
-          <li className="cursor-pointer underline-hover">
-            <a target="_blank" href="http://adresseeshopocaou.com">
-              Shop
-            </a>
           </li>
         </ul>
       </div>
