@@ -174,13 +174,9 @@ export default function Menu() {
             onClick={toggleMenu}
             className="sm:hidden cursor-pointer relative z-50 flex items-center"
           >
-            <a
-              className="bg-gold hover:bg-gold text-white text-sm py-1 px-2 rounded-full"
-              target="_blank"
-              href="http://adresseeshopocaou.com"
-            >
-              Acheter
-            </a>
+            <div className="rounded-full border border-black p-1 cursor-pointer transition-transform transform hover:scale-95">
+              <Image src={iconCart} alt="icon panier" width={25} height={25} />
+            </div>
             <div className="ml-4">
               <span
                 className={`block h-1 w-10 bg-black mb-1 transition-transform duration-200 ease-in-out ${
@@ -207,7 +203,7 @@ export default function Menu() {
         ref={menuRef}
         className={`fixed top-0 right-0 w-full h-full bg-sand transform translate-x-full transition-transform duration-500 ease-in-out z-40`}
       >
-        <ul className="flex flex-col items-center px-6 h-screen justify-center space-y-6 text-white text-4xl uppercase font-bold">
+        <ul className="flex flex-col items-center px-6 h-screen justify-center space-y-7 text-white text-3xl uppercase font-bold">
           <li
             onClick={() => handleMenuItemClick("bags-content")}
             className="cursor-pointer underline-hover"
@@ -228,6 +224,12 @@ export default function Menu() {
           </li>
           <li className="cursor-pointer underline-hover">
             <a href="mailto:hello@ocaou.com"> Contact</a>
+          </li>
+          <li className="cursor-pointer underline-hover">
+            <a href="mailto:hello@ocaou.com"> Acheter</a>
+          </li>
+          <li className="cursor-pointer underline-hover">
+            <a href="mailto:hello@ocaou.com"> Professionnels</a>
           </li>
         </ul>
       </div>
