@@ -43,6 +43,30 @@ export const bags = [
         normal: "/image/sac-chair/10.jpg",
         zoomed: "/image/sac-chair/10.jpg",
       },
+      {
+        normal: "/image/sac-chair/11.jpg",
+        zoomed: "/image/sac-chair/11.jpg",
+      },
+      {
+        normal: "/image/sac-chair/12.jpg",
+        zoomed: "/image/sac-chair/12.jpg",
+      },
+      {
+        normal: "/image/sac-chair/13.jpg",
+        zoomed: "/image/sac-chair/13.jpg",
+      },
+      {
+        normal: "/image/sac-chair/14.jpg",
+        zoomed: "/image/sac-chair/14.jpg",
+      },
+      {
+        normal: "/image/sac-chair/15.jpg",
+        zoomed: "/image/sac-chair/15.jpg",
+      },
+      {
+        normal: "/image/sac-chair/16.jpg",
+        zoomed: "/image/sac-chair/16.jpg",
+      },
     ],
     icon: "/image/sac-chair/icon.png",
     features: [
@@ -129,6 +153,30 @@ export const bags = [
       {
         normal: "/image/sac-bleu/10.jpg",
         zoomed: "/image/sac-bleu/10.jpg",
+      },
+      {
+        normal: "/image/sac-bleu/11.jpg",
+        zoomed: "/image/sac-bleu/11.jpg",
+      },
+      {
+        normal: "/image/sac-bleu/12.jpg",
+        zoomed: "/image/sac-bleu/12.jpg",
+      },
+      {
+        normal: "/image/sac-bleu/13.jpg",
+        zoomed: "/image/sac-bleu/13.jpg",
+      },
+      {
+        normal: "/image/sac-bleu/14.jpg",
+        zoomed: "/image/sac-bleu/14.jpg",
+      },
+      {
+        normal: "/image/sac-bleu/15.jpg",
+        zoomed: "/image/sac-bleu/15.jpg",
+      },
+      {
+        normal: "/image/sac-bleu/16.jpg",
+        zoomed: "/image/sac-bleu/16.jpg",
       },
     ],
     icon: "/image/sac-bleu/icon.png",
@@ -217,6 +265,30 @@ export const bags = [
         normal: "/image/sac-vert/10.jpg",
         zoomed: "/image/sac-vert/10.jpg",
       },
+      {
+        normal: "/image/sac-vert/11.jpg",
+        zoomed: "/image/sac-vert/11.jpg",
+      },
+      {
+        normal: "/image/sac-vert/12.jpg",
+        zoomed: "/image/sac-vert/12.jpg",
+      },
+      {
+        normal: "/image/sac-vert/13.jpg",
+        zoomed: "/image/sac-vert/13.jpg",
+      },
+      {
+        normal: "/image/sac-vert/14.jpg",
+        zoomed: "/image/sac-vert/14.jpg",
+      },
+      {
+        normal: "/image/sac-vert/15.jpg",
+        zoomed: "/image/sac-vert/15.jpg",
+      },
+      {
+        normal: "/image/sac-vert/16.jpg",
+        zoomed: "/image/sac-vert/16.jpg",
+      },
     ],
     icon: "/image/sac-vert/icon.png",
     features: [
@@ -303,6 +375,30 @@ export const bags = [
       {
         normal: "/image/sac-orange/10.jpg",
         zoomed: "/image/sac-orange/10.jpg",
+      },
+      {
+        normal: "/image/sac-orange/11.jpg",
+        zoomed: "/image/sac-orange/11.jpg",
+      },
+      {
+        normal: "/image/sac-orange/12.jpg",
+        zoomed: "/image/sac-orange/12.jpg",
+      },
+      {
+        normal: "/image/sac-orange/13.jpg",
+        zoomed: "/image/sac-orange/13.jpg",
+      },
+      {
+        normal: "/image/sac-orange/14.jpg",
+        zoomed: "/image/sac-orange/14.jpg",
+      },
+      {
+        normal: "/image/sac-orange/15.jpg",
+        zoomed: "/image/sac-orange/15.jpg",
+      },
+      {
+        normal: "/image/sac-orange/16.jpg",
+        zoomed: "/image/sac-orange/16.jpg",
       },
     ],
     icon: "/image/sac-orange/icon.png",

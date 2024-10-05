@@ -116,7 +116,7 @@ export default function Menu() {
           isScrolled ? "bg-white border-b border-slate-200" : "bg-white"
         }`}
       >
-        <div className="flex justify-between items-center px-6 py-4 sm:py-4 sm:px-24">
+        <div className="flex justify-between items-center px-6 py-4 sm:py-5 sm:px-24">
           <Image
             src={logoOcaou}
             alt="logo O'CAOU"
@@ -146,14 +146,26 @@ export default function Menu() {
             <li className="cursor-pointer underline-hover">
               <a href="mailto:hello@ocaou.com">Contact</a>
             </li>
-            <li className="cursor-pointer underline-hover">
-              <a target="_blank" href="http://adresseeshopocaou.com">
-                Shop
-              </a>
-            </li>
-            <li className="rounded-full border border-black p-1 cursor-pointer">
-              <Image src={iconCart} alt="icon panier" width={25} height={25} />
-            </li>
+            <div className="flex sm:gap-5">
+              <li className="bg-gold text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
+                <a target="_blank" href="">
+                  Acheter
+                </a>
+              </li>
+              <li className="bg-sand text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
+                <a target="_blank" href="">
+                  Professionnels
+                </a>
+              </li>
+              <li className="rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
+                <Image
+                  src={iconCart}
+                  alt="icon panier"
+                  width={25}
+                  height={25}
+                />
+              </li>
+            </div>
           </ul>
 
           <div

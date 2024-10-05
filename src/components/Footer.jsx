@@ -15,7 +15,15 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center sm:flex-row sm:justify-between sm:gap-20">
           <div className="flex flex-col items-center">
             <p className="uppercase">...Vous voulez acheter</p>
-            <p className="underline">Notre shop en ligne</p>
+            <div className="flex">
+              <a target="_blank" href="">
+                <p className="underline">Particuliers</p>
+              </a>
+              <span className="mx-2">/</span>
+              <a target="_blank" href="">
+                <p className="underline">Professionnels</p>
+              </a>
+            </div>
           </div>
 
           {/* <div className="mt-5 flex flex-col items-center sm:mt-0">

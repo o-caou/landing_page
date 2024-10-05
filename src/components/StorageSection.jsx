@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -11,59 +11,72 @@ import { storages } from "../../data/storages";
 import blackArrowGallery from "/public/image/black-arrow-gallery.svg";
 
 export default function StorageSection() {
-  const [currentStorage, setCurrentStorage] = useState(storages[0]);
+  // État pour la sélection des boutons
+  const [selectedStorageIndex, setSelectedStorageIndex] = useState(0);
+
+  // État pour le contenu actuellement affiché
+  const [currentStorageIndex, setCurrentStorageIndex] = useState(0);
   const [currentStorageImageIndex, setCurrentStorageImageIndex] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Fonctions pour naviguer entre les images du stockage
+  // Fonction pour naviguer entre les images du stockage
   const nextStorageImage = () => {
     setCurrentStorageImageIndex(
-      (prevIndex) => (prevIndex + 1) % currentStorage.images.length
+      (prevIndex) =>
+        (prevIndex + 1) % storages[currentStorageIndex].images.length
     );
   };
 
   const prevStorageImage = () => {
     setCurrentStorageImageIndex(
       (prevIndex) =>
-        (prevIndex - 1 + currentStorage.images.length) %
-        currentStorage.images.length
+        (prevIndex - 1 + storages[currentStorageIndex].images.length) %
+        storages[currentStorageIndex].images.length
     );
   };
 
   // Gestion du clic sur un stockage
   const handleStorageClick = (index) => {
-    if (currentStorage.id === storages[index].id) return;
-
-    setCurrentStorage(storages[index]);
-    setCurrentStorageImageIndex(0);
-    setIsDropdownOpen(false);
-
-    gsap.to(".img1, .img2, .img3, .storage-text", {
-      opacity: 0,
-      y: "100%",
-      duration: 0.3,
-      ease: "power1.in",
-      onComplete: () => {
-        setCurrentStorage(storages[index]);
-        setCurrentStorageImageIndex(0);
-
-        gsap.fromTo(
-          ".img1, .img2, .img3, .storage-text",
-          { opacity: 0, y: "-100%" },
-          { opacity: 1, y: "0%", duration: 0.3, ease: "power1.out" }
-        );
-      },
-    });
-
+    if (selectedStorageIndex === index) return;
+    setSelectedStorageIndex(index);
     setIsDropdownOpen(false);
   };
+
+  // Effet pour animer le changement de contenu lorsque selectedStorageIndex change
+  useEffect(() => {
+    if (selectedStorageIndex !== currentStorageIndex) {
+      // Animation de disparition
+      gsap.to(".img1, .img2, .img3, .storage-text", {
+        opacity: 0,
+        y: "100%",
+        duration: 0.3,
+        ease: "power1.in",
+        onComplete: () => {
+          // Mise à jour de l'état du contenu affiché
+          setCurrentStorageIndex(selectedStorageIndex);
+          setCurrentStorageImageIndex(0);
+
+          // Animation d'apparition
+          gsap.fromTo(
+            ".img1, .img2, .img3, .storage-text",
+            { opacity: 0, y: "-100%" },
+            { opacity: 1, y: "0%", duration: 0.3, ease: "power1.out" }
+          );
+        },
+      });
+    }
+  }, [selectedStorageIndex, currentStorageIndex]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
+  // Récupérer le stockage actuel basé sur currentStorageIndex
+  const currentStorage = storages[currentStorageIndex];
+
   return (
     <div className="sm:mx-24 sm:flex sm:gap-4">
+      {/* Section Principale */}
       <div className="bg-lin sm:rounded-lg sm:w-7/12 p-6 sm:p-10">
         <p className="mt-4 uppercase font-extrabold text-center sm:text-left sm:mt-0">
           Ranger, anticiper, c’est notre dada.
@@ -74,6 +87,7 @@ export default function StorageSection() {
           hyper pratique.
         </p>
 
+        {/* Boutons de sélection et Image principale pour les écrans larges */}
         <div className="hidden sm:flex sm:items-center sm:gap-10 sm:mt-10">
           <div className="flex-col inline-flex">
             {storages.map((storage, index) => (
@@ -81,7 +95,7 @@ export default function StorageSection() {
                 key={storage.id}
                 onClick={() => handleStorageClick(index)}
                 className={`flex justify-center items-center h-14 p-4 my-2 rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105 ${
-                  currentStorage.id === storage.id ? "bg-sand" : "bg-disabled"
+                  selectedStorageIndex === index ? "bg-sand" : "bg-disabled"
                 }`}
               >
                 <Image
@@ -90,7 +104,7 @@ export default function StorageSection() {
                   width={186}
                   height={58}
                   className={`h-14 ${
-                    currentStorage.id === storage.id
+                    selectedStorageIndex === index
                       ? "opacity-100"
                       : "opacity-50"
                   }`}
@@ -121,14 +135,15 @@ export default function StorageSection() {
           </div>
         </div>
 
+        {/* Dropdown et Image principale pour les écrans mobiles */}
         <div className="relative sm:hidden mt-4">
           <div
             onClick={toggleDropdown}
             className="z-30 h-11 px-4 py-2 rounded-lg flex items-center justify-center border border-sand relative mb-6 bg-sand"
           >
             <Image
-              src={currentStorage.btn}
-              alt={currentStorage.name}
+              src={storages[selectedStorageIndex].btn}
+              alt={storages[selectedStorageIndex].name}
               width={186}
               height={58}
               className="h-8"
@@ -159,7 +174,7 @@ export default function StorageSection() {
                     key={storage.id}
                     onClick={() => handleStorageClick(index)}
                     className={`w-full px-6 py-2 cursor-pointer flex items-center justify-center ${
-                      currentStorage.id === storage.id ? "bg-sand" : ""
+                      selectedStorageIndex === index ? "bg-sand" : ""
                     }`}
                   >
                     <Image
@@ -188,7 +203,7 @@ export default function StorageSection() {
             <Zoom
               zoomImg={{
                 src: currentStorage.images[currentStorageImageIndex],
-                alt: "Image du stockage",
+                alt: `Image ${currentStorageImageIndex + 1}`,
               }}
             >
               <Image
@@ -232,6 +247,7 @@ export default function StorageSection() {
           </div>
         </div>
 
+        {/* Texte pour les écrans mobiles */}
         <div className="text rounded-b-lg h-1/5 p-4 bg-sand flex items-center justify-center sm:hidden">
           <p className="text-xl uppercase font-bold text-center">
             {currentStorage.txt}
@@ -239,12 +255,16 @@ export default function StorageSection() {
         </div>
       </div>
 
+      {/* Section des Images Secondaires et Texte pour les écrans larges */}
       <div className="sm:w-5/12 sm:flex sm:flex-col sm:gap-4">
+        {/* Texte pour les écrans larges */}
         <div className="hidden text rounded-lg h-1/5 p-4 bg-sand sm:flex sm:items-center sm:justify-center overflow-hidden">
           <p className="storage-text text-xl uppercase font-bold text-center">
             {currentStorage.txt}
           </p>
         </div>
+
+        {/* Première Image Secondaire */}
         <div className="relative bg-lin rounded-lg h-2/5 overflow-hidden">
           <div className="absolute top-0 left-0 h-7 w-7 z-10 bg-gold rounded-tl-lg flex justify-center items-center cursor-pointer">
             <Image
@@ -265,6 +285,8 @@ export default function StorageSection() {
             />
           </Zoom>
         </div>
+
+        {/* Deuxième Image Secondaire */}
         <div className="relative bg-lin rounded-lg h-2/5 overflow-hidden">
           <div className="absolute top-0 left-0 h-7 w-7 z-10 bg-gold rounded-tl-lg flex justify-center items-center cursor-pointer">
             <Image

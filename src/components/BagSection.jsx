@@ -189,7 +189,7 @@ export default function BagSection() {
       </div>
 
       <div className="relative sm:mx-24 z-10">
-        <div className="flex items-center justify-center gap-4 pt-8 sm:justify-start sm:gap-6 sm:pt-24">
+        <div className="flex items-center justify-center gap-4 pt-8 sm:justify-start sm:gap-6 sm:pt-24 sm:block-inline">
           {bags.map((bagItem, index) => (
             <div
               key={bagItem.id}
@@ -219,7 +219,13 @@ export default function BagSection() {
         >
           <div className="px-6 w-full sm:px-0 sm:w-3/6 ">
             <div className="hidden my-5 sm:block">
-              <p className="text-7xl font-extrabold">Le Sac</p>
+              <div className="flex items-end">
+                <p className="text-7xl font-extrabold">Le Sac</p>
+                <p className="ml-5 text-4xl font-extrabold text-sand">
+                  79 € <span className="text-sm align-super">TTC</span>
+                </p>
+              </div>
+
               <p className="mt-4 uppercase text-base">
                 Un sac à dos malin pour avoir tout sous la main, juste O’CAOU...
               </p>
@@ -510,7 +516,7 @@ export default function BagSection() {
       </div>
 
       <div className="ml-8 flex justify-between items-end sm:ml-24 sm:mt-10">
-        <div className="hidden sm:flex sm:gap-6">
+        <div className="w-2/3 hidden sm:flex sm:flex-wrap sm:gap-4 ">
           {bag.gallery.map((picture, index) => (
             <div
               key={index}
@@ -535,7 +541,7 @@ export default function BagSection() {
           ))}
         </div>
 
-        <div className="hidden w-full h-16 bg-gold text-lin rounded-l-lg pl-8 pr-44 text-lg z-20 sm:inline-flex sm:items-center sm:w-72 sm:pl-6">
+        <div className=" w-1/3 hidden  h-16 bg-gold text-lin rounded-l-lg pl-8 pr-44 text-lg z-20 sm:inline-flex sm:items-center sm:w-72 sm:pl-6">
           <Image
             src={whiteArrowGallery}
             alt="white arrow"
