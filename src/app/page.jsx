@@ -134,7 +134,7 @@ export default function Home() {
               height="100%"
               controls
               preload="auto"
-              className="rounded-lg bg-transparent"
+              className="rounded-lg bg-black aspect-video"
               poster="image/intro-video-background-2.jpg"
             >
               <source src="/video/ocaou-bag-16.mp4" type="video/mp4" />

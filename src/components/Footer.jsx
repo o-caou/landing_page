@@ -17,11 +17,11 @@ export default function Footer() {
             <p className="uppercase">...Vous voulez acheter</p>
             <div className="flex">
               <a target="_blank" href="">
-                <p className="underline">Particuliers</p>
+                <p className="underline">Particulier</p>
               </a>
               <span className="mx-2">/</span>
               <a target="_blank" href="">
-                <p className="underline">Professionnels</p>
+                <p className="underline">Revendeur</p>
               </a>
             </div>
           </div>

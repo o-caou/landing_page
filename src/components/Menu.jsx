@@ -155,7 +155,7 @@ export default function Menu() {
               </li>
               <li className="bg-sand text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
                 <a target="_blank" href="">
-                  Professionnels
+                  Revendeur
                 </a>
               </li>
               <li className="rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
@@ -229,7 +229,7 @@ export default function Menu() {
             <a href="mailto:hello@ocaou.com"> Acheter</a>
           </li>
           <li className="cursor-pointer underline-hover">
-            <a href="mailto:hello@ocaou.com"> Professionnels</a>
+            <a href="mailto:hello@ocaou.com"> Revendeur</a>
           </li>
         </ul>
       </div>
