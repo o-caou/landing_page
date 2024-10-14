@@ -1,7 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+
+// Images
 import logoOcaou from "/public/image/logo-ocaou.svg";
-import iconCart from "/public/image/icon-cart.svg";
+import iconCart from "/public/image/icon-cart-2.svg";
+import iconAccount from "/public/image/icon-account.svg";
+
+// Packages
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -158,12 +163,20 @@ export default function Menu() {
                   Revendeur
                 </a>
               </li>
-              <li className="rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
+              <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
                 <Image
                   src={iconCart}
-                  alt="icon panier"
+                  alt="Voir mon panier"
                   width={25}
                   height={25}
+                />
+              </li>
+              <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
+                <Image
+                  src={iconAccount}
+                  alt="Créer un compte"
+                  width={16}
+                  height={16}
                 />
               </li>
             </div>
