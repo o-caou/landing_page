@@ -2,6 +2,11 @@ import "./globals.css";
 import poppins from "../lib/fonts";
 import Head from "next/head";
 
+// Components
+import CookieBanner from "@/components/CookieBanner";
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
+
 export const metadata = {
   title: "O'CAOU, Un sac intelligent qui pense à tout.",
   description:
@@ -36,7 +41,12 @@ export default function RootLayout({ children }) {
         <meta property="twitter:description" content={metadata.description} />
         <meta property="twitter:image" content={metadata.image} />
       </Head>
-      <body className={`${poppins.className} bg-white`}>{children}</body>
+      <body className={`${poppins.className} bg-white`}>
+        <Menu />
+        {children}
+        <CookieBanner />
+        <Footer />
+      </body>
     </html>
   );
 }

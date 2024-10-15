@@ -1,5 +1,8 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Images
 import logoOcaou from "/public/image/logo-ocaou.svg";
@@ -122,13 +125,16 @@ export default function Menu() {
         }`}
       >
         <div className="flex justify-between items-center px-6 py-4 sm:py-5 sm:px-24">
-          <Image
-            src={logoOcaou}
-            alt="logo O'CAOU"
-            width={135}
-            onClick={scrollToTop}
-            className="cursor-pointer"
-          />
+          <Link href="/">
+            <Image
+              src={logoOcaou}
+              alt="logo O'CAOU"
+              width={135}
+              onClick={scrollToTop}
+              className="cursor-pointer"
+            />
+          </Link>
+
           <ul className="hidden sm:flex sm:items-center sm:text-base sm:gap-10">
             <li
               onClick={() => scrollToSection("bags-content")}

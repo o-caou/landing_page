@@ -17,8 +17,6 @@ import Image from "next/image";
 import whiteArrow from "/public/image/white-arrow.svg";
 
 // Components
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
 import BagSection from "@/components/BagSection";
 import StorageSection from "@/components/StorageSection";
 import GallerySection from "@/components/GallerySection";
@@ -90,8 +88,6 @@ export default function Home() {
     <>
       <div ref={contentRef} className="border border-lin">
         <div className="bg-lin bg-cover bg-center sm:h-screen w-full bg-[url('/image/home_background_mobile.jpg')] sm:bg-[url('/image/home_background-2.jpg')]">
-          <Menu />
-
           <div className="flex items-center px-6 h-full text-sm sm:px-24">
             <div className="flex mt-10 flex-col items-center sm:mt-0 sm:w-6/12 sm:items-start">
               <p className="mt-96 font-extrabold text-4xl sm:text-6xl text-center sm:text-left sm:mt-0">
@@ -155,7 +151,6 @@ export default function Home() {
         <Reasurance />
         <GallerySection gallery={gallery} />
         <SpiritSection />
-        <Footer />
       </div>
     </>
   );
