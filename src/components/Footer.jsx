@@ -97,32 +97,32 @@ export default function Footer() {
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Acheter</li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Particulier
             </li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Revendeur
             </li>
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nos services</li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">FAQ</li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">FAQ</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Livraisons & retours
             </li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Où nous trouver ?
             </li>
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nous contacter</li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Par mail
             </li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Instagram
             </li>
-            <li className="cursor-pointer sm:underline-hover sm:w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Facebook
             </li>
           </ul>
