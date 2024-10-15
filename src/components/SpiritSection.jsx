@@ -8,8 +8,8 @@ function SpiritSection() {
         <div className="h-2/3 sm:h-full sm:w-2/3 bg-lin"></div>
       </div>
       <div className="relative flex flex-col sm:flex-row w-full sm:mx-24 items-center">
-        <div className="ml-0 relative flex flex-col justify-center p-4 w-full order-2 sm:ml-20 sm:w-3/6">
-          <p className="text-4xl sm:text-8xl font-extrabold text-center sm:text-left">
+        <div className="ml-0 relative flex flex-col justify-center p-4 w-full order-2 sm:ml-20 sm:w-3/6 mt-14">
+          <p className="text-6xl font-extrabold text-center sm:text-8xl sm:text-left">
             L&rsquo;esprit
           </p>
           <div className="mb-4 mt-6 sm:mb-10 sm:mt-8 text-center sm:text-left">
@@ -40,12 +40,12 @@ function SpiritSection() {
             </p>
           </div>
         </div>
-        <div className="relative h-[300px] sm:h-[426px] w-full rounded-lg overflow-hidden order-1 mt-10 sm:mt-0 sm:w-3/6">
+        <div className="relative h-[330px] sm:h-[426px] w-full rounded-lg overflow-hidden order-1 mt-10 sm:mt-0 sm:w-3/6">
           <Image
             src="/image/lesprit.jpg"
             alt="Image de l'esprit"
             fill
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: "right center" }}
             className="rounded-lg"
           />
         </div>

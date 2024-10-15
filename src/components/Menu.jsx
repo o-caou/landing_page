@@ -1,9 +1,9 @@
-// Images
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
 // Images
 import logoOcaou from "/public/image/logo-ocaou.svg";
@@ -12,9 +12,6 @@ import iconAccount from "/public/image/icon-account.svg";
 
 // Packages
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Menu() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,6 +19,9 @@ export default function Menu() {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const menuLinksRef = useRef(null);
+
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (menuLinksRef.current) {
@@ -53,11 +53,7 @@ export default function Menu() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -71,31 +67,22 @@ export default function Menu() {
   };
 
   useEffect(() => {
-    if (menuOpen) {
-      gsap.to(menuRef.current, { x: 0, duration: 0.1, ease: "expo.inOut" });
-    } else {
-      gsap.to(menuRef.current, {
-        x: "100%",
-        duration: 0.1,
-        ease: "expo.inOut",
-      });
-    }
+    gsap.to(menuRef.current, {
+      x: menuOpen ? 0 : "100%",
+      duration: 0.1,
+      ease: "expo.inOut",
+    });
   }, [menuOpen]);
 
-  const scrollToSection = (className) => {
-    const section = document.querySelector(`.${className}`);
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
     const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
 
     if (section) {
       const sectionPosition =
         section.getBoundingClientRect().top + window.pageYOffset;
 
-      const isMobile = window.innerWidth <= 768;
-      const isSacSection = className === "bags-content";
-      const offsetPosition =
-        isMobile && isSacSection
-          ? sectionPosition - headerHeight - 130
-          : sectionPosition - headerHeight - 20;
+      const offsetPosition = sectionPosition - headerHeight;
 
       window.scrollTo({
         top: offsetPosition,
@@ -104,15 +91,12 @@ export default function Menu() {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const handleMenuItemClick = (className) => {
-    scrollToSection(className);
+  const handleMenuItemClick = (id) => {
+    if (pathname === "/") {
+      scrollToSection(id);
+    } else {
+      router.push("/#" + id);
+    }
     setMenuOpen(false);
   };
 
@@ -131,7 +115,6 @@ export default function Menu() {
               src={logoOcaou}
               alt="logo O'CAOU"
               width={135}
-              onClick={scrollToTop}
               className="cursor-pointer"
             />
           </Link>
@@ -141,22 +124,22 @@ export default function Menu() {
             className="hidden sm:flex sm:items-center sm:text-base sm:gap-10"
           >
             <li
-              onClick={() => scrollToSection("bags-content")}
+              onClick={() => handleMenuItemClick("bags-content")}
               className="cursor-pointer underline-hover"
             >
               Le Sac
             </li>
             <li
-              onClick={() => scrollToSection("use-content")}
+              onClick={() => handleMenuItemClick("use-content")}
               className="cursor-pointer underline-hover"
             >
-              L&rsquo;Usage
+              L’Usage
             </li>
             <li
-              onClick={() => scrollToSection("spirit-content")}
+              onClick={() => handleMenuItemClick("spirit-content")}
               className="cursor-pointer underline-hover"
             >
-              L&rsquo;Esprit
+              L’Esprit
             </li>
             <li className="cursor-pointer underline-hover">
               <a href="mailto:hello@ocaou.com">Contact</a>
@@ -200,6 +183,14 @@ export default function Menu() {
             <div className="rounded-full border border-black p-1 cursor-pointer transition-transform transform hover:scale-95">
               <Image src={iconCart} alt="icon panier" width={25} height={25} />
             </div>
+            <div className="flex justify-center items-center rounded-full border border-black p-2 ml-2 cursor-pointer transition-transform transform hover:scale-95">
+              <Image
+                src={iconAccount}
+                alt="Créer un compte"
+                width={16}
+                height={16}
+              />
+            </div>
             <div className="ml-4">
               <span
                 className={`block h-1 w-10 bg-black mb-1 transition-transform duration-200 ease-in-out ${
@@ -237,22 +228,26 @@ export default function Menu() {
             onClick={() => handleMenuItemClick("use-content")}
             className="cursor-pointer underline-hover"
           >
-            L&rsquo;Usage
+            L’Usage
           </li>
           <li
             onClick={() => handleMenuItemClick("spirit-content")}
             className="cursor-pointer underline-hover"
           >
-            L&rsquo;Esprit
+            L’Esprit
           </li>
           <li className="cursor-pointer underline-hover">
-            <a href="mailto:hello@ocaou.com"> Contact</a>
+            <a target="_blank" href="">
+              Acheter
+            </a>
           </li>
           <li className="cursor-pointer underline-hover">
-            <a href="mailto:hello@ocaou.com"> Acheter</a>
+            <a target="_blank" href="">
+              Revendeur
+            </a>
           </li>
           <li className="cursor-pointer underline-hover">
-            <a href="mailto:hello@ocaou.com"> Revendeur</a>
+            <a href="mailto:hello@ocaou.com">Contact</a>
           </li>
         </ul>
       </div>

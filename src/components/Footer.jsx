@@ -16,7 +16,7 @@ export default function Footer() {
 
       footerLinks.forEach((link) => {
         link.style.position = "relative";
-        link.style.paddingBottom = "5px";
+        link.style.paddingBottom = "2px";
 
         link.addEventListener("mouseenter", () => {
           gsap.set(link, {
@@ -40,46 +40,59 @@ export default function Footer() {
 
   return (
     <div className="w-full px-6 py-10 bg-sand sm:px-24">
-      <div className="flex justify-between items-start">
+      <div className="flex flex-col items-center sm:flex-row sm:justify-between sm:items-start">
         <Image src={logoOcaou} alt="logo O'CAOU" width={100} />
 
-        <div className="flex gap-20 text-sm" ref={footerLinksRef}>
-          <ul className="flex flex-col gap-y-2">
+        <div
+          className="flex flex-col gap-10 text-sm text-center sm:text-left sm:gap-20 sm:flex-row"
+          ref={footerLinksRef}
+        >
+          <ul className="flex flex-col gap-y-2 mt-10">
             <li className="uppercase font-bold">La marque</li>
-            <li className="cursor-pointer underline-hover w-fit">Le sac</li>
-            <li className="cursor-pointer underline-hover w-fit">L'usage</li>
-            <li className="cursor-pointer underline-hover w-fit">L'esprit</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">Le sac</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">L'usage</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
+              L'esprit
+            </li>
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Acheter</li>
-            <li className="cursor-pointer underline-hover w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Particulier
             </li>
-            <li className="cursor-pointer underline-hover w-fit">Revendeur</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
+              Revendeur
+            </li>
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nos services</li>
-            <li className="cursor-pointer underline-hover w-fit">FAQ</li>
-            <li className="cursor-pointer underline-hover w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">FAQ</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Livraisons & retours
             </li>
-            <li className="cursor-pointer underline-hover w-fit">
+            <li className="cursor-pointer underline-hover sm:w-fit">
               Où nous trouver ?
             </li>
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nous contacter</li>
-            <li className="cursor-pointer underline-hover w-fit">Par mail</li>
-            <li className="cursor-pointer underline-hover w-fit">Instagram</li>
-            <li className="cursor-pointer underline-hover w-fit">Facebook</li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
+              Par mail
+            </li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
+              Instagram
+            </li>
+            <li className="cursor-pointer underline-hover sm:w-fit">
+              Facebook
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="w-full h-px bg-black my-8"></div>
-      <div className="flex w-full justify-between text-black text-xs">
+      <div className="flex flex-col text-center w-full justify-between text-black text-xs sm:flex-row sm:text-left">
         <p>© 2024 O&apos;CAOU</p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center">
           <p className="underline uppercase">cgv</p>
           <p>/</p>
           <p className="underline uppercase">mentions légales</p>

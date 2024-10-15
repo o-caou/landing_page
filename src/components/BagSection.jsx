@@ -188,7 +188,7 @@ export default function BagSection() {
         </p>
       </div>
 
-      <div className="relative sm:mx-24 z-10">
+      <div className="relative sm:mx-24 z-10 ">
         <div className="flex items-center justify-center gap-4 pt-8 sm:justify-start sm:gap-6 sm:pt-24 sm:block-inline">
           {bags.map((bagItem, index) => (
             <div

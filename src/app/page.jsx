@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { bags } from "../../data/bags";
 import { storages } from "../../data/storages";
 import { gallery } from "../../data/gallery";
 
-//Packages
+// Packages
 import "react-medium-image-zoom/dist/styles.css";
 import Lenis from "lenis";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -20,7 +21,7 @@ import whiteArrow from "/public/image/white-arrow.svg";
 import BagSection from "@/components/BagSection";
 import StorageSection from "@/components/StorageSection";
 import GallerySection from "@/components/GallerySection";
-import Reasurance from "@/components/ReasuranceSection";
+import Reassurance from "@/components/ReasuranceSection";
 import SpiritSection from "@/components/SpiritSection";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -36,8 +37,10 @@ export default function Home() {
   const textRef = useRef(null);
   const headerRef = useRef(null);
 
-  const scrollToSection = (className) => {
-    const section = document.querySelector(`.${className}`);
+  const pathname = usePathname();
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
     const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
 
     if (section) {
@@ -83,6 +86,29 @@ export default function Home() {
     }
     requestAnimationFrame(raf);
   }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        setTimeout(() => {
+          scrollToSection(hash);
+        }, 100);
+      }
+    };
+
+    // Gérer le défilement initial si un hash est présent
+    if (window.location.hash) {
+      handleHashChange();
+    }
+
+    // Écouter les changements de hash
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, [pathname]);
 
   return (
     <>
@@ -142,15 +168,25 @@ export default function Home() {
             <div className="h-1/2 " style={{ backgroundColor: bag.hex }}></div>
           </div>
         </div>
-        <BagSection bags={bags} />
+
+        <div id="bags-content">
+          <BagSection bags={bags} />
+        </div>
+
         <div
           className="hidden h-px mx-24 sm:block sm:mb-14"
           style={{ backgroundColor: bag.hex }}
         ></div>
+
         <StorageSection storages={storages} />
-        <Reasurance />
-        <GallerySection gallery={gallery} />
-        <SpiritSection />
+
+        <Reassurance />
+        <div id="use-content">
+          <GallerySection gallery={gallery} />
+        </div>
+        <div id="spirit-content">
+          <SpiritSection />
+        </div>
       </div>
     </>
   );
