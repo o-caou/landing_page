@@ -1,9 +1,9 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="bg-lin p-8 w-full px-6 sm:px-24 sm:pt-40 sm:pb-24">
+    <div className="bg-lin p-8 w-full px-6 pt-32 pb-12 sm:px-24 sm:pt-40 sm:pb-24">
       <h1 className="text-3xl font-bold mb-4">Politique de Confidentialité</h1>
       <p className="mb-12">
-        Bienvenue sur OCAOU. La confidentialité de vos données personnelles est
+        Bienvenue sur O'CAOU. La confidentialité de vos données personnelles est
         très importante pour nous. Cette politique de confidentialité vous
         explique comment nous collectons, utilisons et protégeons vos données
         lorsque vous visitez notre site web.

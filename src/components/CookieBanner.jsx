@@ -30,14 +30,16 @@ export default function CookieBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-black text-white p-4 flex flex-col md:flex-row justify-between items-center z-30">
-      <div className="flex items-center">
-        <p className="mb-2 md:mb-0">
+    <div className="fixed bottom-0 left-0 w-full bg-black text-white flex flex-col justify-between items-center z-30 p-6 sm:p-4 sm:flex-row ">
+      <div className="sm:flex sm:items-center">
+        <p className="mb-2 text-center sm:mb-0 sm:text-left">
           Nous utilisons des cookies pour améliorer votre expérience sur notre
           boutique.
         </p>
-        <Link href="/privacy-policy" className="underline text-white px-4 py-2">
-          En savoir plus
+        <Link href="/privacy-policy" className="sm:px-4 sm:py-2">
+          <p className="underline text-white  text-center sm:text-left">
+            En savoir plus
+          </p>
         </Link>
       </div>
 
