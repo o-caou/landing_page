@@ -8,7 +8,7 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "O'CAOU, Un sac qui pense à tout.",
+  title: "O'CAOU, Un sac intelligent qui pense à tout.",
   description:
     "O'CAOU imagine un sac à dos qui se transforme en organiseur avec des poches étiquetées O'CAOU j'ai soif, O'CAOU j'ai faim, mon doudou O'CAOU, mes affaires O'CAOU, et juste O'CAOU...car on ne sait jamais! Un sac malin pour avoir tout sous la main.",
   image: "https://metatags.io/images/meta-tags.png",
