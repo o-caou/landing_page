@@ -1,3 +1,4 @@
+// Images
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -20,34 +21,34 @@ export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const menuLinksRef = useRef(null);
 
   useEffect(() => {
-    const links = document.querySelectorAll(
-      "li.cursor-pointer.underline-hover"
-    );
+    if (menuLinksRef.current) {
+      const links = menuLinksRef.current.querySelectorAll(".underline-hover");
 
-    links.forEach((link) => {
-      const underline = document.createElement("div");
-      underline.className = "underline";
-      underline.style.position = "absolute";
-      underline.style.left = "0";
-      underline.style.bottom = "0";
-      underline.style.width = "0";
-      underline.style.height = "2px";
-      underline.style.backgroundColor = "#d7ac05";
-      underline.style.transition = "width 0.2s ease-in-out";
-      link.style.position = "relative";
-      link.style.paddingBottom = "5px";
-      link.appendChild(underline);
+      links.forEach((link) => {
+        link.style.position = "relative";
+        link.style.paddingBottom = "2px";
 
-      link.addEventListener("mouseenter", () => {
-        gsap.to(underline, { width: "100%", duration: 0.1 });
+        link.addEventListener("mouseenter", () => {
+          gsap.set(link, {
+            backgroundImage: "linear-gradient(to right, #d7ac05, #d7ac05)",
+            backgroundPosition: "0% 100%",
+            backgroundSize: "0% 2px",
+            backgroundRepeat: "no-repeat",
+          });
+          gsap.to(link, { backgroundSize: "100% 2px", duration: 0.3 });
+        });
+
+        link.addEventListener("mouseleave", () => {
+          gsap.to(link, {
+            backgroundSize: "0% 2px",
+            duration: 0.3,
+          });
+        });
       });
-
-      link.addEventListener("mouseleave", () => {
-        gsap.to(underline, { width: "0%", duration: 0.1 });
-      });
-    });
+    }
   }, []);
 
   useEffect(() => {
@@ -135,7 +136,10 @@ export default function Menu() {
             />
           </Link>
 
-          <ul className="hidden sm:flex sm:items-center sm:text-base sm:gap-10">
+          <ul
+            ref={menuLinksRef}
+            className="hidden sm:flex sm:items-center sm:text-base sm:gap-10"
+          >
             <li
               onClick={() => scrollToSection("bags-content")}
               className="cursor-pointer underline-hover"
