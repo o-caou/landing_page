@@ -87,8 +87,8 @@ export const bags = [
         icon: "/image/icon-pushair.svg",
       },
     ],
-    colors: ["#d0c4b6"],
-    hex: "#d6b8a2",
+    colors: ["#e4d6cb"],
+    hex: "#e4d6cb",
     dimensions: {
       close: "L34cm (base) / L23cm (haut) x H27cm x P10cm",
       open: "L34cm x H62cm (70cm avec poignée) x P10cm",
@@ -199,7 +199,7 @@ export const bags = [
       },
     ],
     colors: ["#acb8c0"],
-    hex: "#d6b8a2",
+    hex: "#acb8c0",
     dimensions: {
       close: "L34cm (base) / L23cm (haut) x H27cm x P10cm",
       open: "L34cm x H62cm (70cm avec poignée) x P10cm",
@@ -310,7 +310,7 @@ export const bags = [
       },
     ],
     colors: ["#869188"],
-    hex: "#d6b8a2",
+    hex: "#869188",
     dimensions: {
       close: "L34cm (base) / L23cm (haut) x H27cm x P10cm",
       open: "L34cm x H62cm (70cm avec poignée) x P10cm",
@@ -421,7 +421,7 @@ export const bags = [
       },
     ],
     colors: ["#cc9a61"],
-    hex: "#d6b8a2",
+    hex: "#cc9a61",
     dimensions: {
       close: "L34cm (base) / L23cm (haut) x H27cm x P10cm",
       open: "L34cm x H62cm (70cm avec poignée) x P10cm",

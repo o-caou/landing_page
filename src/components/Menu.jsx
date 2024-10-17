@@ -145,7 +145,7 @@ export default function Menu() {
               <a href="mailto:hello@ocaou.com">Contact</a>
             </li>
 
-            <div className="flex sm:gap-5">
+            {/* <div className="flex sm:gap-5">
               <li className="bg-gold text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
                 <a target="_blank" href="">
                   Acheter
@@ -158,21 +158,21 @@ export default function Menu() {
               </li>
               <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
                 <Image
-                  src={iconCart}
-                  alt="Voir mon panier"
-                  width={25}
-                  height={25}
-                />
-              </li>
-              <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
-                <Image
                   src={iconAccount}
                   alt="Créer un compte"
                   width={16}
                   height={16}
                 />
               </li>
-            </div>
+              <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
+                <Image
+                  src={iconCart}
+                  alt="Voir mon panier"
+                  width={25}
+                  height={25}
+                />
+              </li>
+            </div> */}
           </ul>
 
           <div

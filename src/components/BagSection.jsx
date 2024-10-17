@@ -10,9 +10,9 @@ import { bags } from "../../data/bags";
 // Images
 import blackArrowGallery from "/public/image/black-arrow-gallery.svg";
 import whiteArrowGallery from "/public/image/white-arrow-gallery.svg";
+import goldArrowGallery from "/public/image/gold-arrow-gallery.svg";
 
-export default function BagSection() {
-  const [currentBag, setCurrentBag] = useState(0);
+export default function BagSection({ bags, currentBag, setCurrentBag }) {
   const bag = bags[currentBag];
   const [selectedImage, setSelectedImage] = useState(bag.gallery[0].normal);
   const [isOpen, setIsOpen] = useState({
@@ -101,15 +101,15 @@ export default function BagSection() {
   };
 
   // Animation lors du changement de sac
-  useEffect(() => {
-    if (rightBackgroundRef.current) {
-      gsap.fromTo(
-        rightBackgroundRef.current,
-        { x: "100%" },
-        { x: "0%", duration: 0.4 }
-      );
-    }
-  }, [currentBag]);
+  // useEffect(() => {
+  //   if (rightBackgroundRef.current) {
+  //     gsap.fromTo(
+  //       rightBackgroundRef.current,
+  //       { x: "100%" },
+  //       { x: "0%", duration: 0.4 }
+  //     );
+  //   }
+  // }, [currentBag]);
 
   // Animation lors du changement d'image sélectionnée
   useEffect(() => {
@@ -219,11 +219,15 @@ export default function BagSection() {
         >
           <div className="px-6 w-full sm:px-0 sm:w-3/6 ">
             <div className="hidden my-5 sm:block">
-              <div className="flex items-end">
+              <div className="flex items-center">
                 <p className="text-7xl font-extrabold">Le Sac</p>
-                <p className="ml-5 text-4xl font-extrabold text-sand">
-                  79 € <span className="text-sm align-super">TTC</span>
+                <p className="ml-10 mr-4 text-5xl font-extrabold text-sand mt-3">
+                  79 €
                 </p>
+
+                {/* <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
+                  Acheter
+                </p> */}
               </div>
 
               <p className="mt-4 uppercase text-base">
@@ -345,6 +349,7 @@ export default function BagSection() {
             </div>
 
             {/* Mobile Accordion */}
+
             <div
               className="flex justify-between items-center cursor-pointer w-full mt-8 sm:hidden"
               onClick={() => toggleSectionMobile("features")}
@@ -352,6 +357,7 @@ export default function BagSection() {
               <p className="uppercase font-bold ">Détails du produit</p>
               <p>{isOpen.features ? "-" : "+"}</p>
             </div>
+
             <div ref={featuresRefMobile} className="overflow-hidden">
               <div className="details-product-mobile">
                 {bag.features.map((feature, index) => (
@@ -452,6 +458,14 @@ export default function BagSection() {
                 </div>
               </div>
             </div>
+            {/* <div className="flex justify-between items-center mt-3 sm:hidden">
+              <p className="text-center text-5xl font-extrabold text-sand mt-3">
+                79 €
+              </p>
+              <p className="mt-3 ml-7 text-center flex-1 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
+                Acheter
+              </p>
+            </div> */}
           </div>
 
           <div className="mt-4 relative sm:translate-x-20 sm:px-20 sm:w-3/6 sm:mt-0">
@@ -515,30 +529,65 @@ export default function BagSection() {
         </div>
       </div>
 
-      <div className="ml-8 flex justify-between items-end sm:ml-24 sm:mt-10">
-        <div className="w-2/3 hidden sm:flex sm:flex-wrap sm:gap-4 ">
-          {bag.gallery.map((picture, index) => (
-            <div
-              key={index}
-              className={`h-16 w-16 rounded-lg bg-lin cursor-pointer flex justify-center items-center transform transition-transform duration-200 ${
-                selectedImage === picture.normal ? "scale-105" : ""
-              } hover:scale-105`}
-              onClick={() => handleGalleryClick(picture)}
-              style={{
-                backgroundColor:
-                  selectedImage === picture.normal ? bag.hex : "",
+      <div className="ml-8 flex justify-between items-center sm:ml-24 sm:mt-10">
+        <div className="relative w-4/6 hidden sm:flex sm:gap-4 sm:items-center">
+          {/* Conteneur de vignettes */}
+          <div
+            id="gallery-slider"
+            className="flex overflow-x-auto space-x-4 w-full  scroll-smooth scrollbar-hide"
+          >
+            {bag.gallery.map((picture, index) => (
+              <div
+                key={index}
+                className={`h-16 w-16 flex-shrink-0 rounded-lg bg-lin cursor-pointer flex justify-center items-center transform transition-transform duration-200 ${
+                  selectedImage === picture.normal ? "scale-105" : ""
+                } hover:scale-105`}
+                onClick={() => handleGalleryClick(picture)}
+                style={{
+                  backgroundColor:
+                    selectedImage === picture.normal ? bag.hex : "",
+                }}
+              >
+                <Image
+                  src={picture.normal}
+                  alt={`gallery image ${index}`}
+                  width={100}
+                  height={100}
+                  style={{ objectFit: "cover" }}
+                  className="w-full h-full rounded-lg"
+                />
+              </div>
+            ))}
+          </div>
+
+          <div>
+            {/* Flèche gauche */}
+            <button
+              className=" z-10 h-10 w-10  rounded-full flex justify-center items-center"
+              onClick={() => {
+                const container = document.getElementById("gallery-slider");
+                container.scrollLeft -= 200; // Ajuste la valeur pour la vitesse de défilement
               }}
             >
               <Image
-                src={picture.normal}
-                alt={`gallery image ${index}`}
-                width={100}
-                height={100}
-                style={{ objectFit: "cover" }}
-                className="w-full h-full rounded-lg"
+                src={goldArrowGallery}
+                alt="arrow left"
+                width={16}
+                className="rotate-180"
               />
-            </div>
-          ))}
+            </button>
+
+            {/* Flèche droite */}
+            <button
+              className="h-10 w-10 flex justify-center items-center"
+              onClick={() => {
+                const container = document.getElementById("gallery-slider");
+                container.scrollLeft += 100; // Ajuste la valeur pour la vitesse de défilement
+              }}
+            >
+              <Image src={goldArrowGallery} alt="arrow right" width={16} />
+            </button>
+          </div>
         </div>
 
         <div className=" w-1/3 hidden  h-16 bg-gold text-lin rounded-l-lg pl-8 pr-44 text-lg z-20 sm:inline-flex sm:items-center sm:w-72 sm:pl-6">
@@ -560,13 +609,15 @@ export default function BagSection() {
         </div>
       </div>
 
-      <div
-        ref={rightBackgroundRef}
-        className="hidden w-1/4 absolute right-0 top-0 h-full z-0 sm:block bg-no-repeat bg-cover"
-        style={{
-          backgroundColor: bag.hex,
-        }}
-      ></div>
+      {bag.colors.map((color, index) => (
+        <div
+          ref={rightBackgroundRef}
+          className="hidden w-1/4 absolute right-0 top-0 h-full z-0 bg-no-repeat bg-cover transition-colors duration-300 sm:block "
+          style={{
+            backgroundColor: color,
+          }}
+        ></div>
+      ))}
     </div>
   );
 }

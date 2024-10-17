@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function SpiritSection() {
   return (
-    <div className="spirit-content relative w-full flex flex-col px-6 sm:py-14 sm:px-0 sm:flex-row">
+    <div className="spirit-content relative w-full flex flex-col px-6 sm:py-7 sm:px-0 sm:flex-row">
       <div className="absolute inset-0 flex flex-col sm:flex-row">
         <div className="h-1/3 sm:h-full sm:w-1/3 bg-gold"></div>
         <div className="h-2/3 sm:h-full sm:w-2/3 bg-lin"></div>

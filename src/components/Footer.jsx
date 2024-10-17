@@ -95,7 +95,7 @@ export default function Footer() {
               L'esprit
             </li>
           </ul>
-          <ul className="flex flex-col gap-y-2">
+          {/* <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Acheter</li>
             <li className="cursor-pointer underline-hover sm:w-fit">
               Particulier
@@ -103,8 +103,8 @@ export default function Footer() {
             <li className="cursor-pointer underline-hover sm:w-fit">
               Revendeur
             </li>
-          </ul>
-          <ul className="flex flex-col gap-y-2">
+          </ul> */}
+          {/* <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nos services</li>
             <li className="cursor-pointer underline-hover sm:w-fit">FAQ</li>
             <li className="cursor-pointer underline-hover sm:w-fit">
@@ -113,17 +113,26 @@ export default function Footer() {
             <li className="cursor-pointer underline-hover sm:w-fit">
               Où nous trouver ?
             </li>
-          </ul>
-          <ul className="flex flex-col gap-y-2">
+          </ul> */}
+          <ul className="flex flex-col gap-y-2 ">
             <li className="uppercase font-bold">Nous contacter</li>
             <li className="cursor-pointer underline-hover sm:w-fit">
-              Par mail
+              <a href="mailto:hello@ocaou.com" target="_blank">
+                Par mail
+              </a>
             </li>
             <li className="cursor-pointer underline-hover sm:w-fit">
-              Instagram
+              <a href="https://www.instagram.com/ocaou_/" target="_blank">
+                Instagram
+              </a>
             </li>
             <li className="cursor-pointer underline-hover sm:w-fit">
-              Facebook
+              <a
+                href="https://www.facebook.com/profile.php?id=61566739830296"
+                target="_blank"
+              >
+                Facebook
+              </a>
             </li>
           </ul>
         </div>

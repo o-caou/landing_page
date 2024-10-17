@@ -156,7 +156,7 @@ export default function Home() {
               height="100%"
               controls
               preload="auto"
-              className="rounded-lg bg-black aspect-video"
+              className="rounded-lg bg-lin aspect-video"
               poster="image/intro-video-background-2.jpg"
             >
               <source src="/video/ocaou-bag-16.mp4" type="video/mp4" />
@@ -164,13 +164,20 @@ export default function Home() {
           </div>
 
           <div className="hidden sm:block sm:w-1/6">
-            <div className="bg-intro h-1/2 "></div>
-            <div className="h-1/2 " style={{ backgroundColor: bag.hex }}></div>
+            <div className="bg-intro h-1/2"></div>
+            <div
+              className="h-1/2 transition-colors duration-300" // Ajout de la transition
+              style={{ backgroundColor: bagType[currentBag].hex }} // Utilisation de bagType[currentBag]
+            ></div>
           </div>
         </div>
 
         <div id="bags-content">
-          <BagSection bags={bags} />
+          <BagSection
+            bags={bags}
+            currentBag={currentBag}
+            setCurrentBag={setCurrentBag}
+          />
         </div>
 
         <div
