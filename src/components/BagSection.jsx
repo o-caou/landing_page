@@ -225,9 +225,9 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                   79 €
                 </p>
 
-                {/* <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
+                <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer transition-transform transform hover:scale-95">
                   Acheter
-                </p> */}
+                </p>
               </div>
 
               <p className="mt-4 uppercase text-base">
@@ -458,14 +458,14 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                 </div>
               </div>
             </div>
-            {/* <div className="flex justify-between items-center mt-3 sm:hidden">
+            <div className="flex justify-between items-center mt-3 sm:hidden">
               <p className="text-center text-5xl font-extrabold text-sand mt-3">
                 79 €
               </p>
               <p className="mt-3 ml-7 text-center flex-1 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
                 Acheter
               </p>
-            </div> */}
+            </div>
           </div>
 
           <div className="mt-4 relative sm:translate-x-20 sm:px-20 sm:w-3/6 sm:mt-0">

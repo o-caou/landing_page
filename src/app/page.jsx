@@ -112,7 +112,7 @@ export default function Home() {
 
   return (
     <>
-      <div ref={contentRef} className="border border-lin">
+      <div ref={contentRef}>
         <div className="bg-lin bg-cover bg-center sm:h-screen w-full bg-[url('/image/home_background_mobile.jpg')] sm:bg-[url('/image/home_background-2.jpg')]">
           <div className="flex items-center px-6 h-full text-sm sm:px-24">
             <div className="flex mt-10 flex-col items-center sm:mt-0 sm:w-6/12 sm:items-start">

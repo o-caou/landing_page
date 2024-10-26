@@ -95,7 +95,7 @@ export default function Footer() {
               L'esprit
             </li>
           </ul>
-          {/* <ul className="flex flex-col gap-y-2">
+          <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Acheter</li>
             <li className="cursor-pointer underline-hover sm:w-fit">
               Particulier
@@ -103,17 +103,17 @@ export default function Footer() {
             <li className="cursor-pointer underline-hover sm:w-fit">
               Revendeur
             </li>
-          </ul> */}
-          {/* <ul className="flex flex-col gap-y-2">
+          </ul>
+          <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nos services</li>
-            <li className="cursor-pointer underline-hover sm:w-fit">FAQ</li>
+            {/* <li className="cursor-pointer underline-hover sm:w-fit">FAQ</li> */}
             <li className="cursor-pointer underline-hover sm:w-fit">
               Livraisons & retours
             </li>
-            <li className="cursor-pointer underline-hover sm:w-fit">
+            {/* <li className="cursor-pointer underline-hover sm:w-fit">
               Où nous trouver ?
-            </li>
-          </ul> */}
+            </li> */}
+          </ul>
           <ul className="flex flex-col gap-y-2 ">
             <li className="uppercase font-bold">Nous contacter</li>
             <li className="cursor-pointer underline-hover sm:w-fit">
@@ -146,7 +146,7 @@ export default function Footer() {
           <p>/</p>
           <p className="underline uppercase">mentions légales</p>
           <p>/</p>
-          <p className="underline uppercase">cookies</p>
+          <p className="underline uppercase">politique de confidentialité</p>
         </div>
       </div>
     </div>

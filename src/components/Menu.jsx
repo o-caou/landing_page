@@ -145,7 +145,7 @@ export default function Menu() {
               <a href="mailto:hello@ocaou.com">Contact</a>
             </li>
 
-            {/* <div className="flex sm:gap-5">
+            <div className="flex sm:gap-5">
               <li className="bg-gold text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
                 <a target="_blank" href="">
                   Acheter
@@ -172,7 +172,7 @@ export default function Menu() {
                   height={25}
                 />
               </li>
-            </div> */}
+            </div>
           </ul>
 
           <div
