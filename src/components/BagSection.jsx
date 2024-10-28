@@ -37,7 +37,7 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
   const bagContainerRef = useRef(null);
   const animationsRef = useRef({});
 
-  // Fonctions pour gérer l'ouverture et la fermeture des sections
+  // Fonctions pour gérer l'ouverture et la fermeture des sections (desktop)
   const toggleSection = (section) => {
     const animation = animationsRef.current[`desktop_${section}`];
     animation.reversed(!animation.reversed());
@@ -59,20 +59,12 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
     });
   };
 
+  // Fonctions pour gérer l'ouverture et la fermeture des sections (mobile)
   const toggleSectionMobile = (section) => {
-    const animation = animationsRef.current[`mobile_${section}`];
-    animation.reversed(!animation.reversed());
-
-    setIsOpen((prevIsOpen) => {
-      const newIsOpen = { ...prevIsOpen };
-      newIsOpen[section] = !prevIsOpen[section];
-
-      if (section !== "features") {
-        newIsOpen.features = true;
-      }
-
-      return newIsOpen;
-    });
+    setIsOpen((prevIsOpen) => ({
+      ...prevIsOpen,
+      [section]: !prevIsOpen[section],
+    }));
   };
 
   // Navigation entre les sacs
@@ -100,17 +92,6 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
     setSelectedImage(picture.normal);
   };
 
-  // Animation lors du changement de sac
-  // useEffect(() => {
-  //   if (rightBackgroundRef.current) {
-  //     gsap.fromTo(
-  //       rightBackgroundRef.current,
-  //       { x: "100%" },
-  //       { x: "0%", duration: 0.4 }
-  //     );
-  //   }
-  // }, [currentBag]);
-
   // Animation lors du changement d'image sélectionnée
   useEffect(() => {
     if (galleryImageRef.current && selectedImage && window.innerWidth >= 640) {
@@ -122,19 +103,12 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
     }
   }, [selectedImage]);
 
-  // Initialisation des animations des sections
+  // Initialisation des animations des sections (desktop)
   useEffect(() => {
     const refsDesktop = {
       dimensions: dimensionsRefDesktop.current,
       composition: compositionRefDesktop.current,
       maintenance: maintenanceRefDesktop.current,
-    };
-
-    const refsMobile = {
-      features: featuresRefMobile.current,
-      dimensions: dimensionsRefMobile.current,
-      composition: compositionRefMobile.current,
-      maintenance: maintenanceRefMobile.current,
     };
 
     // Initialiser les animations pour desktop
@@ -154,24 +128,6 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
         animationsRef.current[`desktop_${section}`] = animation;
       }
     });
-
-    // Initialiser les animations pour mobile
-    Object.keys(refsMobile).forEach((section) => {
-      const content = refsMobile[section];
-      if (content) {
-        gsap.set(content, { height: "auto", overflow: "hidden" });
-
-        const animation = gsap
-          .from(content, {
-            height: 0,
-            duration: 0.5,
-            ease: "power1.inOut",
-          })
-          .reverse();
-
-        animationsRef.current[`mobile_${section}`] = animation;
-      }
-    });
   }, []);
 
   // Mise à jour de l'image sélectionnée lors du changement de sac
@@ -189,7 +145,7 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
       </div>
 
       <div className="relative sm:mx-24 z-10 ">
-        <div className="flex items-center justify-center gap-4 pt-8 sm:justify-start sm:gap-6 sm:pt-24 sm:block-inline">
+        <div className="flex items-center justify-center gap-4 pt-8 sm:justify-start sm:gap-6 sm:pt-24">
           {bags.map((bagItem, index) => (
             <div
               key={bagItem.id}
@@ -225,7 +181,7 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                   79 €
                 </p>
 
-                <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer transition-transform transform hover:scale-95">
+                <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
                   Acheter
                 </p>
               </div>
@@ -326,14 +282,10 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                   </div>
                   <div ref={maintenanceRefDesktop} className="overflow-hidden">
                     <div className="mt-3 text-sm">
-                      <p>{bag.careInstructions.laver}</p>
-                      <p>{bag.careInstructions.tremper}</p>
-                      <p>{bag.careInstructions.essorer}</p>
-                      <p>{bag.careInstructions.remodeler}</p>
-                      <p>{bag.careInstructions.plat}</p>
-                      <p>{bag.careInstructions.sechage}</p>
-                      <p>{bag.careInstructions.repasser}</p>
-                      <p>{bag.careInstructions.blanchiment}</p>
+                      {Object.entries(bag.careInstructions).map(
+                        ([key, instruction], idx) =>
+                          key !== "icons" && <p key={idx}>{instruction}</p>
+                      )}
                       <Image
                         src={bag.careInstructions.icons}
                         alt={"icons care instructions"}
@@ -358,7 +310,12 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
               <p>{isOpen.features ? "-" : "+"}</p>
             </div>
 
-            <div ref={featuresRefMobile} className="overflow-hidden">
+            <div
+              ref={featuresRefMobile}
+              className={`transition-all duration-500 ${
+                isOpen.features ? "max-h-[1000px]" : "max-h-0 overflow-hidden"
+              }`}
+            >
               <div className="details-product-mobile">
                 {bag.features.map((feature, index) => (
                   <div
@@ -396,7 +353,14 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                       <p className="uppercase font-bold">dimensions (en cm)</p>
                       <p>{isOpen.dimensions ? "-" : "+"}</p>
                     </div>
-                    <div ref={dimensionsRefMobile} className="overflow-hidden">
+                    <div
+                      ref={dimensionsRefMobile}
+                      className={`transition-all duration-500 ${
+                        isOpen.dimensions
+                          ? "max-h-[500px]"
+                          : "max-h-0 overflow-hidden"
+                      }`}
+                    >
                       <div className="relative my-3 text-sm w-full">
                         <p>
                           Dimensions fermées:
@@ -418,7 +382,14 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                       <p className="uppercase font-bold">composition textile</p>
                       <p>{isOpen.composition ? "-" : "+"}</p>
                     </div>
-                    <div ref={compositionRefMobile} className="overflow-hidden">
+                    <div
+                      ref={compositionRefMobile}
+                      className={`transition-all duration-500 ${
+                        isOpen.composition
+                          ? "max-h-[500px]"
+                          : "max-h-0 overflow-hidden"
+                      }`}
+                    >
                       <div className="my-3 text-sm">
                         <p>Extérieur: {bag.textileComposition.exterieur}</p>
                         <p>Intérieur: {bag.textileComposition.interieur}</p>
@@ -435,16 +406,19 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                       <p className="uppercase font-bold">entretien</p>
                       <p>{isOpen.maintenance ? "-" : "+"}</p>
                     </div>
-                    <div ref={maintenanceRefMobile} className="overflow-hidden">
+                    <div
+                      ref={maintenanceRefMobile}
+                      className={`transition-all duration-500 ${
+                        isOpen.maintenance
+                          ? "max-h-[500px]"
+                          : "max-h-0 overflow-hidden"
+                      }`}
+                    >
                       <div className="my-3 text-sm">
-                        <p>{bag.careInstructions.laver}</p>
-                        <p>{bag.careInstructions.tremper}</p>
-                        <p>{bag.careInstructions.essorer}</p>
-                        <p>{bag.careInstructions.remodeler}</p>
-                        <p>{bag.careInstructions.plat}</p>
-                        <p>{bag.careInstructions.sechage}</p>
-                        <p>{bag.careInstructions.repasser}</p>
-                        <p>{bag.careInstructions.blanchiment}</p>
+                        {Object.entries(bag.careInstructions).map(
+                          ([key, instruction], idx) =>
+                            key !== "icons" && <p key={idx}>{instruction}</p>
+                        )}
                         <Image
                           src={bag.careInstructions.icons}
                           alt={"icons care instructions"}
@@ -566,7 +540,7 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
               className=" z-10 h-10 w-10  rounded-full flex justify-center items-center"
               onClick={() => {
                 const container = document.getElementById("gallery-slider");
-                container.scrollLeft -= 200; // Ajuste la valeur pour la vitesse de défilement
+                container.scrollLeft -= 200;
               }}
             >
               <Image
@@ -582,7 +556,7 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
               className="h-10 w-10 flex justify-center items-center"
               onClick={() => {
                 const container = document.getElementById("gallery-slider");
-                container.scrollLeft += 100; // Ajuste la valeur pour la vitesse de défilement
+                container.scrollLeft += 100;
               }}
             >
               <Image src={goldArrowGallery} alt="arrow right" width={16} />
@@ -611,6 +585,7 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
 
       {bag.colors.map((color, index) => (
         <div
+          key={index}
           ref={rightBackgroundRef}
           className="hidden w-1/4 absolute right-0 top-0 h-full z-0 bg-no-repeat bg-cover transition-colors duration-300 sm:block "
           style={{
