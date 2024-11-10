@@ -4,7 +4,9 @@ import Image from "next/image";
 
 function GallerySection({ gallery }) {
   const getColSpanClass = (index) => {
-    if (index >= 6 && index <= 13) {
+    if (index >= gallery.images.length - 3) {
+      return "col-span-3";
+    } else if (index >= 6 && index <= 13) {
       return "col-span-3";
     } else if (index >= 17 && index <= 18) {
       return "col-span-6";
@@ -23,32 +25,43 @@ function GallerySection({ gallery }) {
       </div>
 
       <div className="grid gap-2 grid-cols-12 sm:gap-4">
-        {gallery.images.map((image, index) => {
-          const colSpanClass = getColSpanClass(index);
+        {gallery.images
+          .concat("/image/usage/video_parc.mp4")
+          .map((item, index) => {
+            const colSpanClass = getColSpanClass(index);
+            const isVideo = item.endsWith(".mp4");
 
-          return (
-            <div
-              key={index}
-              className={`relative bg-lin h-32 sm:h-80 rounded-lg ${colSpanClass} transition-transform duration-300 hover:scale-95`}
-            >
-              <Zoom zoomImg={{ src: image, alt: `Zoom image ${index + 1}` }}>
-                <Image
-                  src={image}
-                  alt={`img${index + 1}`}
-                  fill
-                  sizes="100vw"
-                  style={{ objectFit: "cover" }}
-                  className="rounded-lg"
-                />
-              </Zoom>
-              {index < gallery.textOverlay.length && (
-                <div className="absolute m-2 bottom-0 bg-sand text-black py-1 px-2 rounded text-xs sm:m-0 sm:bottom-2 sm:left-2 sm:uppercase sm:text-base">
-                  {gallery.textOverlay[index]}
-                </div>
-              )}
-            </div>
-          );
-        })}
+            return (
+              <div
+                key={index}
+                className={`relative bg-lin h-32 sm:h-80 rounded-lg ${colSpanClass} transition-transform duration-300 hover:scale-95`}
+              >
+                {isVideo ? (
+                  <video
+                    src={item}
+                    controls
+                    className="w-full h-full rounded-lg object-cover"
+                  ></video>
+                ) : (
+                  <Zoom zoomImg={{ src: item, alt: `Zoom image ${index + 1}` }}>
+                    <Image
+                      src={item}
+                      alt={`img${index + 1}`}
+                      fill
+                      sizes="100vw"
+                      style={{ objectFit: "cover" }}
+                      className="rounded-lg"
+                    />
+                  </Zoom>
+                )}
+                {index < gallery.textOverlay.length && !isVideo && (
+                  <div className="absolute m-2 bottom-0 bg-sand text-black py-1 px-2 rounded text-xs sm:m-0 sm:bottom-2 sm:left-2 sm:uppercase sm:text-base">
+                    {gallery.textOverlay[index]}
+                  </div>
+                )}
+              </div>
+            );
+          })}
       </div>
     </div>
   );

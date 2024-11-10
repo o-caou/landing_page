@@ -22,7 +22,11 @@ export const gallery = {
     "/image/usage/20.jpg",
     "/image/usage/21.jpg",
     "/image/usage/22.jpg",
+    "/image/usage/23.jpg",
+    "/image/usage/24.jpg",
+    "/image/usage/25.jpg",
   ],
+  video: "/image/usage/video_parc.mp4",
   textOverlay: [
     "Pour langer",
     "Pour partir en week-end",
