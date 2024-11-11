@@ -110,6 +110,10 @@ export default function Home() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [pathname]);
+
   return (
     <>
       <div ref={contentRef}>
