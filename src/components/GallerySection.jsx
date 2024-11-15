@@ -40,7 +40,7 @@ function GallerySection({ gallery }) {
                   <video
                     src={item}
                     controls
-                    className="w-full h-full rounded-lg object-cover"
+                    className="w-full h-full rounded-lg"
                   ></video>
                 ) : (
                   <Zoom zoomImg={{ src: item, alt: `Zoom image ${index + 1}` }}>

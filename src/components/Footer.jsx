@@ -141,11 +141,11 @@ export default function Footer() {
       <div className="w-full h-px bg-black my-8"></div>
       <div className="flex flex-col text-center w-full justify-between text-black text-xs sm:flex-row sm:text-left">
         <p>© 2024 O&apos;CAOU</p>
-        <div className="flex gap-2 justify-center">
+        <div className="flex flex-col gap-5 mt-4 justify-center sm:gap-2 sm:mt-0 sm:flex-row">
           <p className="underline uppercase">cgv</p>
-          <p>/</p>
+          <p className="hidden sm:block">/</p>
           <p className="underline uppercase">mentions légales</p>
-          <p>/</p>
+          <p className="hidden sm:block">/</p>
           <p className="underline uppercase">politique de confidentialité</p>
         </div>
       </div>

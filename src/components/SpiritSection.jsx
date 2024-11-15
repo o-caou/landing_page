@@ -2,13 +2,13 @@ import Image from "next/image";
 
 function SpiritSection() {
   return (
-    <div className="spirit-content relative w-full flex flex-col px-6 sm:py-7 sm:px-0 sm:flex-row">
+    <div className="spirit-content relative w-full flex flex-col sm:py-7 sm:px-0 sm:flex-row">
       <div className="absolute inset-0 flex flex-col sm:flex-row">
-        <div className="h-1/3 sm:h-full sm:w-1/3 bg-gold"></div>
-        <div className="h-2/3 sm:h-full sm:w-2/3 bg-lin"></div>
+        <div className="hidden h-1/3 sm:block sm:h-full sm:w-1/3 bg-gold"></div>
+        <div className="hidden h-2/3 sm:block sm:h-full sm:w-2/3 bg-lin"></div>
       </div>
       <div className="relative flex flex-col sm:flex-row w-full sm:mx-24 items-center">
-        <div className="ml-0 relative flex flex-col justify-center p-4 w-full order-2 sm:ml-20 sm:w-3/6 mt-14">
+        <div className="bg-lin px-6 py-10 flex flex-col justify-center  w-full order-2 sm:ml-20 sm:w-3/6 sm:mt-14">
           <p className="text-6xl font-extrabold text-center sm:text-8xl sm:text-left">
             L&rsquo;esprit
           </p>
@@ -40,13 +40,12 @@ function SpiritSection() {
             </p>
           </div>
         </div>
-        <div className="relative h-[330px] sm:h-[426px] w-full rounded-lg overflow-hidden order-1 mt-10 sm:mt-0 sm:w-3/6">
+        <div className="relative h-[330px] sm:h-[426px] w-full overflow-hidden order-1 sm:mt-0 sm:w-3/6 sm:rounded-lg">
           <Image
             src="/image/lesprit.jpg"
             alt="Image de l'esprit"
             fill
             style={{ objectFit: "cover", objectPosition: "right center" }}
-            className="rounded-lg"
           />
         </div>
       </div>
