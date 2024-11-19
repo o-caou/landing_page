@@ -26,10 +26,10 @@ function GallerySection({ gallery }) {
 
       <div className="grid gap-2 grid-cols-12 sm:gap-4">
         {gallery.images
-          .concat("/image/usage/video_parc.mp4")
+          .concat("/image/usage/video_parc.mov")
           .map((item, index) => {
             const colSpanClass = getColSpanClass(index);
-            const isVideo = item.endsWith(".mp4");
+            const isVideo = item.endsWith(".mov");
 
             return (
               <div
