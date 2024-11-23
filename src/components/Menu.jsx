@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import Banner from "./Banner";
 
 // Images
 import logoOcaou from "/public/image/logo-ocaou.svg";
@@ -210,6 +211,7 @@ export default function Menu() {
             </div>
           </div>
         </div>
+        <Banner />
       </div>
 
       <div
