@@ -23,7 +23,7 @@ export default function Banner() {
         <span className="font-bold">
           Black Friday : <span className="text-gold">-20%</span>
         </span>{" "}
-        sur toute la boutique du 30 novembre au 1er décembre avec le code promo
+        sur toute la boutique du 29 novembre au 1er décembre avec le code promo
         <span className="font-bold text-gold"> OCAOU20</span>
         <span className="ml-2">🎉</span>
       </p>
