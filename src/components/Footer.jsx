@@ -67,8 +67,30 @@ export default function Footer() {
 
   return (
     <div className="w-full px-6 py-10 bg-sand sm:px-24">
-      <div className="flex flex-col items-center sm:flex-row sm:justify-between sm:items-start">
-        <Image src={logoOcaou} alt="logo O'CAOU" width={100} />
+      <div className="flex flex-col items-center sm:flex-row sm:justify-between sm:items-start  ">
+        <div className="flex flex-col justify-between items-center sm:items-start">
+          <Image src={logoOcaou} alt="logo O'CAOU" width={100} />
+          <div className="mt-10">
+            {/* <p className="text-sm">Moyens de paiement :</p> */}
+
+            <div className="flex flex-col items-center  mt-2 sm:flex-row">
+              <Image
+                src="/image/paiements-icons.svg"
+                alt="visa"
+                width={350}
+                height={40}
+                className="min-h-10"
+              />
+              <p className="hidden sm:ml-2 sm:text-xs sm:block">
+                Payez en <strong>3x sans frais</strong> <br />
+                avec Klarna.
+              </p>
+              <p className="mt-2 text-sm sm:hidden">
+                Payez en <strong>3x sans frais</strong> avec Klarna.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div
           className="flex flex-col gap-10 text-center sm:text-sm sm:text-left sm:gap-20 sm:flex-row"
