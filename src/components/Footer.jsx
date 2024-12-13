@@ -119,19 +119,25 @@ export default function Footer() {
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Acheter</li>
-            <li className="cursor-pointer underline-hover sm:w-fit">
-              Particulier
-            </li>
-            <li className="cursor-pointer underline-hover sm:w-fit">
-              Revendeur
-            </li>
+            <a href="https://shop.ocaou.com/produit/public">
+              <li className="cursor-pointer underline-hover sm:w-fit">
+                Particulier
+              </li>
+            </a>
+            <a href="https://shop.ocaou.com/revendeur">
+              <li className="cursor-pointer underline-hover sm:w-fit">
+                Revendeur
+              </li>
+            </a>
           </ul>
           <ul className="flex flex-col gap-y-2">
             <li className="uppercase font-bold">Nos services</li>
             {/* <li className="cursor-pointer underline-hover sm:w-fit">FAQ</li> */}
-            <li className="cursor-pointer underline-hover sm:w-fit">
-              Livraisons & retours
-            </li>
+            <a href="https://shop.ocaou.com/livraison-tarif">
+              <li className="cursor-pointer underline-hover sm:w-fit">
+                Livraisons & retours
+              </li>
+            </a>
             {/* <li className="cursor-pointer underline-hover sm:w-fit">
               Où nous trouver ?
             </li> */}
@@ -164,11 +170,18 @@ export default function Footer() {
       <div className="flex flex-col text-center w-full justify-between text-black text-xs sm:flex-row sm:text-left">
         <p>© 2024 O&apos;CAOU</p>
         <div className="flex flex-col gap-5 mt-4 justify-center sm:gap-2 sm:mt-0 sm:flex-row">
-          <p className="underline uppercase">cgv</p>
+          <a href="https://shop.ocaou.com/cgv">
+            <p className="underline uppercase">cgv</p>
+          </a>
+
           <p className="hidden sm:block">/</p>
-          <p className="underline uppercase">mentions légales</p>
+          <a href="https://shop.ocaou.com/mentions-legales">
+            <p className="underline uppercase">mentions légales</p>
+          </a>
           <p className="hidden sm:block">/</p>
-          <p className="underline uppercase">politique de confidentialité</p>
+          <a href="https://shop.ocaou.com/politique-confidentialite">
+            <p className="underline uppercase">politique de confidentialité</p>
+          </a>
         </div>
       </div>
     </div>

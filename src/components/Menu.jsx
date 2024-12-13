@@ -148,31 +148,31 @@ export default function Menu() {
 
             <div className="flex sm:gap-5">
               <li className="bg-gold text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
-                <a target="_blank" href="">
-                  Acheter
-                </a>
+                <a href="https://shop.ocaou.com/produit/public">Acheter</a>
               </li>
               <li className="bg-sand text-white rounded-lg py-2 px-6 cursor-pointer transition-transform transform hover:scale-95">
-                <a target="_blank" href="">
-                  Revendeur
-                </a>
+                <a href="https://shop.ocaou.com/revendeur">Revendeur</a>
               </li>
-              <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
-                <Image
-                  src={iconAccount}
-                  alt="Créer un compte"
-                  width={16}
-                  height={16}
-                />
-              </li>
-              <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
-                <Image
-                  src={iconCart}
-                  alt="Voir mon panier"
-                  width={25}
-                  height={25}
-                />
-              </li>
+              <a href="https://shop.ocaou.com/login">
+                <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
+                  <Image
+                    src={iconAccount}
+                    alt="Créer un compte"
+                    width={16}
+                    height={16}
+                  />
+                </li>
+              </a>
+              <a href="https://shop.ocaou.com/panier">
+                <li className="w-11 h-11 flex justify-center items-center rounded-full border border-black p-2 cursor-pointer transition-transform transform hover:scale-95">
+                  <Image
+                    src={iconCart}
+                    alt="Voir mon panier"
+                    width={25}
+                    height={25}
+                  />
+                </li>
+              </a>
             </div>
           </ul>
 
@@ -181,17 +181,26 @@ export default function Menu() {
             onClick={toggleMenu}
             className="sm:hidden cursor-pointer relative z-50 flex items-center"
           >
-            <div className="rounded-full border border-black p-1 cursor-pointer transition-transform transform hover:scale-95">
-              <Image src={iconCart} alt="icon panier" width={25} height={25} />
-            </div>
-            <div className="flex justify-center items-center rounded-full border border-black p-2 ml-2 cursor-pointer transition-transform transform hover:scale-95">
-              <Image
-                src={iconAccount}
-                alt="Créer un compte"
-                width={16}
-                height={16}
-              />
-            </div>
+            <a href="https://shop.ocaou.com/panier">
+              <div className="rounded-full border border-black p-1 cursor-pointer transition-transform transform hover:scale-95">
+                <Image
+                  src={iconCart}
+                  alt="icon panier"
+                  width={25}
+                  height={25}
+                />
+              </div>
+            </a>
+            <a href="https://shop.ocaou.com/login">
+              <div className="flex justify-center items-center rounded-full border border-black p-2 ml-2 cursor-pointer transition-transform transform hover:scale-95">
+                <Image
+                  src={iconAccount}
+                  alt="Créer un compte"
+                  width={16}
+                  height={16}
+                />
+              </div>
+            </a>
             <div className="ml-4">
               <span
                 className={`block h-1 w-10 bg-black mb-1 transition-transform duration-200 ease-in-out ${
@@ -239,14 +248,10 @@ export default function Menu() {
             L’Esprit
           </li>
           <li className="cursor-pointer underline-hover">
-            <a target="_blank" href="">
-              Acheter
-            </a>
+            <a href="https://shop.ocaou.com/produit/public">Acheter</a>
           </li>
           <li className="cursor-pointer underline-hover">
-            <a target="_blank" href="">
-              Revendeur
-            </a>
+            <a href="https://shop.ocaou.com/revendeur">Revendeur</a>
           </li>
           <li className="cursor-pointer underline-hover">
             <a href="mailto:hello@ocaou.com">Contact</a>

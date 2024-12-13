@@ -438,10 +438,11 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
               <p className="text-center text-5xl font-extrabold text-sand mt-3">
                 79 €
               </p>
-
-              <p className="mt-3 ml-7 text-center flex-1 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
-                Acheter
-              </p>
+              <a href="https://shop.ocaou.com/" className="flex flex-grow">
+                <p className="mt-3 ml-7 text-center flex-1 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
+                  Acheter
+                </p>
+              </a>
             </div>
           </div>
 
