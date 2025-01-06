@@ -43,6 +43,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body className={`${poppins.className} bg-white`}>
         <Menu />
+
         {children}
         <CookieBanner />
         <Footer />

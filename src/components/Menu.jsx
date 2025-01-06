@@ -104,6 +104,7 @@ export default function Menu() {
   return (
     <>
       <div className="hidden sm:h-5 sm:w-full sm:bg-lin"></div>
+
       <div
         ref={headerRef}
         className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
@@ -220,7 +221,7 @@ export default function Menu() {
             </div>
           </div>
         </div>
-        {/* <Banner /> */}
+        <Banner />
       </div>
 
       <div

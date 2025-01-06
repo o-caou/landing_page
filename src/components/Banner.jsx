@@ -7,9 +7,9 @@ export default function Banner() {
 
   const closeBanner = () => {
     setIsVisible(false);
-    if (onClose) {
-      onClose();
-    }
+    // if (onClose) {
+    //   onClose();
+    // }
   };
 
   if (!isVisible) {
@@ -21,11 +21,13 @@ export default function Banner() {
       <p className="text-sm text-left sm:text-center sm:flex-1 sm:text-base">
         <span className="mr-2">🎉</span>
         <span className="font-bold">
-          Black Friday : <span className="text-gold">-20%</span>
-        </span>{" "}
-        sur toute la boutique du 29 novembre au 1er décembre avec le code promo
-        <span className="font-bold text-gold"> OCAOU20</span>
-        <span className="ml-2">🎉</span>
+          C’est l’heure des soldes chez O’CAOU !
+        </span>
+        ✨ Profitez de{" "}
+        <span className="text-gold font-bold">réductions exclusives</span> sur
+        nos sacs à dos organiseur ! 🎒 <br />
+        {/* Les stocks sont limités... alors vite, attrapez votre coup de cœur avant
+        qu’il ne s’envole ! 🎈 */}
       </p>
       <button onClick={closeBanner} className="text-white text-2xl">
         &times;

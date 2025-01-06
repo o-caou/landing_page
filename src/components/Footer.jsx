@@ -126,7 +126,7 @@ export default function Footer() {
             </a>
             <a href="https://shop.ocaou.com/revendeur">
               <li className="cursor-pointer underline-hover sm:w-fit">
-                Revendeur
+                Revendeurs
               </li>
             </a>
           </ul>
