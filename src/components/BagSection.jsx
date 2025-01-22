@@ -175,28 +175,22 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
         >
           <div className="px-6 w-full sm:px-0 sm:w-3/6 ">
             <div className="hidden my-5 sm:block">
-              <p className="text-7xl font-extrabold">Le Sac</p>
-              <p className="my-4 uppercase text-base">
+              <div className="flex items-center">
+                <p className="text-7xl font-extrabold">Le Sac</p>
+                <p className="ml-10 mr-4 text-5xl font-extrabold text-sand mt-3">
+                  79 €
+                </p>
+
+                <a href="https://shop.ocaou.com/">
+                  <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
+                    Acheter
+                  </p>
+                </a>
+              </div>
+
+              <p className="mt-4 uppercase text-base">
                 Un sac à dos malin pour avoir tout sous la main, juste O’CAOU...
               </p>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-8">
-                  <p className="text-5xl font-extrabold text-sand line-through">
-                    79 €
-                  </p>
-                  <div>
-                    <p className="text-xl font-extrabold text-sand">Soldes :</p>
-                    <p className="text-xl font-extrabold text-gold -mt-2">
-                      jusqu'à -15% !
-                    </p>
-                  </div>
-                  <a href="https://shop.ocaou.com/">
-                    <p className="mt-3 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
-                      Acheter
-                    </p>
-                  </a>
-                </div>
-              </div>
             </div>
             {/* Desktop Accordion */}
             <div className="hidden w-full sm:flex">
@@ -440,22 +434,16 @@ export default function BagSection({ bags, currentBag, setCurrentBag }) {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-4 mt-5 sm:hidden">
-              <p className="text-5xl font-extrabold text-sand line-through">
+            <div className="flex justify-between items-center mt-3 sm:hidden">
+              <p className="text-center text-5xl font-extrabold text-sand mt-3">
                 79 €
               </p>
-              <div>
-                <p className="text-2xl font-extrabold text-sand">Soldes :</p>
-                <p className="text-2xl font-extrabold text-gold -mt-2">
-                  jusqu'à -15% !
+              <a href="https://shop.ocaou.com/" className="flex flex-grow">
+                <p className="mt-3 ml-7 text-center flex-1 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
+                  Acheter
                 </p>
-              </div>
+              </a>
             </div>
-            <a href="https://shop.ocaou.com/" className="flex flex-grow">
-              <p className="mt-3  text-center flex-1 bg-gold text-white rounded-lg py-2 px-6 text-lg cursor-pointer">
-                Acheter
-              </p>
-            </a>
           </div>
 
           <div className="mt-4 relative sm:translate-x-20 sm:px-20 sm:w-3/6 sm:mt-0">

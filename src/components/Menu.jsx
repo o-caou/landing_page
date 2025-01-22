@@ -221,7 +221,7 @@ export default function Menu() {
             </div>
           </div>
         </div>
-        <Banner />
+        {/* <Banner /> */}
       </div>
 
       <div
